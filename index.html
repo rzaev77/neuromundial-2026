@@ -135,6 +135,15 @@
   .links a{color:var(--acc);text-decoration:none;font-weight:700;font-size:.9rem;border:1px solid var(--line);padding:8px 16px;border-radius:10px;transition:background .15s}
   .links a:hover{background:var(--card)}
   .disclaimer{max-width:720px;margin:24px auto 0;color:var(--dim);font-size:.78rem;text-align:center;line-height:1.6}
+  .cf{display:inline-block;border:1px solid rgba(255,255,255,.2);vertical-align:middle}
+  .cf-es{background:linear-gradient(180deg,#c60b1e 0 25%,#ffc400 25% 75%,#c60b1e 75%)}
+  .cf-ar{background:linear-gradient(180deg,#74acdf 0 33%,#fff 33% 67%,#74acdf 67%)}
+  .cf-fr{background:linear-gradient(90deg,#0055a4 0 33%,#fff 33% 67%,#ef4135 67%)}
+  .pod .flag{font-size:0}
+  .pod .flag .cf{width:66px;height:44px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+  .mc-pick .flag{font-size:0}
+  .mc-pick .flag .cf{width:38px;height:26px;border-radius:6px}
+  .nm .cf{width:26px;height:18px;border-radius:4px;margin-right:3px}
 </style>
 </head>
 <body>
@@ -154,9 +163,9 @@
     <div class="verdict">
       <div class="lbl">★ Коллективный вердикт ИИ — чемпион ЧМ-2026</div>
       <div class="podium">
-        <div class="pod"><div class="flag">🇫🇷</div><div class="team">Франция</div><div class="votes">2 голоса</div></div>
-        <div class="pod win"><div class="flag">🇪🇸</div><div class="team">Испания</div><div class="votes">★ 5 голосов</div></div>
-        <div class="pod"><div class="flag">🇦🇷</div><div class="team">Аргентина</div><div class="votes">3 голоса</div></div>
+        <div class="pod"><div class="flag"><span class="cf cf-fr"></span></div><div class="team">Франция</div><div class="votes">2 голоса</div></div>
+        <div class="pod win"><div class="flag"><span class="cf cf-es"></span></div><div class="team">Испания</div><div class="votes">★ 5 голосов</div></div>
+        <div class="pod"><div class="flag"><span class="cf cf-ar"></span></div><div class="team">Аргентина</div><div class="votes">3 голоса</div></div>
       </div>
       <p style="color:var(--mut);font-size:.9rem;margin-top:14px">Половина моделей ставит на <b style="color:var(--gold)">Испанию</b>. Но самое единодушное мнение: <b style="color:#fff">9 из 10</b> видят Аргентину минимум в финале или топ-3.</p>
     </div>
@@ -202,17 +211,17 @@
     <div class="sdesc">Распределение голосов за победителя турнира.</div>
     <div class="bars">
       <div class="bar-row">
-        <div class="nm">🇪🇸 Испания</div>
+        <div class="nm"><span class="cf cf-es"></span>Испания</div>
         <div class="bar-track"><div class="bar-fill" data-w="50%" style="width:50%;background:linear-gradient(90deg,#ffd24a,#ffb02e)">50%</div></div>
         <div class="ct">5 моделей</div>
       </div>
       <div class="bar-row">
-        <div class="nm">🇦🇷 Аргентина</div>
+        <div class="nm"><span class="cf cf-ar"></span>Аргентина</div>
         <div class="bar-track"><div class="bar-fill" data-w="30%" style="width:30%;background:linear-gradient(90deg,#36a3ff,#5cc8ff)">30%</div></div>
         <div class="ct">3 модели</div>
       </div>
       <div class="bar-row">
-        <div class="nm">🇫🇷 Франция</div>
+        <div class="nm"><span class="cf cf-fr"></span>Франция</div>
         <div class="bar-track"><div class="bar-fill" data-w="20%" style="width:20%;background:linear-gradient(90deg,#7b5cff,#a18cff)">20%</div></div>
         <div class="ct">2 модели</div>
       </div>
@@ -266,7 +275,7 @@
 <script>
 const MODELS = [
   {
-    name:"GPT-5.5", vendor:"OpenAI · режим xhigh", conf:24, champ:"Франция", flag:"🇫🇷",
+    name:"GPT-5.5", vendor:"OpenAI · режим xhigh", conf:24, champ:"Франция", flag:'<span class="cf cf-fr"></span>',
     final:"Франция — Аргентина", third:"Испания",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Испания</b> — контроль мяча и прессинг; слаба в реализации. Ключевой: Родри.</li>
@@ -282,7 +291,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>24% — риск в том, что сетка с 32 командами повышает шанс одного раннего «плохого» матча фаворита.</p>`
   },
   {
-    name:"Gemini 3.1 Pro Preview", vendor:"Google · режим high", conf:65, champ:"Испания", flag:"🇪🇸",
+    name:"Gemini 3.1 Pro Preview", vendor:"Google · режим high", conf:65, champ:"Испания", flag:'<span class="cf cf-es"></span>',
     final:"Испания — Англия", third:"Франция",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Испания</b> — контроль центра, элитные фланги (Ямаль, Уильямс); нет стабильной «девятки». Ключевой: Ямаль.</li>
@@ -297,7 +306,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>65% — риск: новый раунд 1/16 повышает нагрузку, травмы и сенсации.</p>`
   },
   {
-    name:"Qwen 3.7 Max", vendor:"Alibaba", conf:65, champ:"Испания", flag:"🇪🇸",
+    name:"Qwen 3.7 Max", vendor:"Alibaba", conf:65, champ:"Испания", flag:'<span class="cf cf-es"></span>',
     final:"Испания — Аргентина", third:"Франция",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Франция</b> — глубина и атлетизм; уязвима к контратакам. Ключевой: Мбаппе.</li>
@@ -313,7 +322,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>65% — риск: глубина и адаптивность Франции могут взломать испанскую гегемонию.</p>`
   },
   {
-    name:"Gemini 3.5 Flash", vendor:"Google · режим high", conf:55, champ:"Испания", flag:"🇪🇸",
+    name:"Gemini 3.5 Flash", vendor:"Google · режим high", conf:55, champ:"Испания", flag:'<span class="cf cf-es"></span>',
     final:"Испания — Аргентина", third:"Франция",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Франция</b> — глубина и атлетизм; зависимость от лидеров, риск застоя при Дешаме. Ключевой: Мбаппе.</li>
@@ -328,7 +337,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>55% — риск: формат с 1/16 повышает фактор случайности, усталости и травм.</p>`
   },
   {
-    name:"Claude Opus 4.8", vendor:"Anthropic · режим ultracode", conf:22, champ:"Испания", flag:"🇪🇸",
+    name:"Claude Opus 4.8", vendor:"Anthropic · режим ultracode", conf:22, champ:"Испания", flag:'<span class="cf cf-es"></span>',
     final:"Испания — Аргентина", third:"Франция", featured:true,
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Испания</b> — лучшая полузащита турнира (Родри, Педри, Субименди, Ольмо); нет «девятки», фитнес Ямаля. Ключевой: Педри.</li>
@@ -344,7 +353,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>~22% — риск: здоровье Ямаля и отсутствие чистого форварда; в матче «на дожать» титул может уйти Франции или Англии.</p>`
   },
   {
-    name:"DeepSeek", vendor:"DeepSeek", conf:65, champ:"Испания", flag:"🇪🇸",
+    name:"DeepSeek", vendor:"DeepSeek", conf:65, champ:"Испания", flag:'<span class="cf cf-es"></span>',
     final:"Испания — Аргентина", third:"Франция",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Испания</b> — контроль и талантливая молодёжь после Евро-2024; нет завершителя. Ключевой: Ямаль.</li>
@@ -360,7 +369,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>65% — риск: формат с 1/16 повышает шанс вылета фаворита от «автобуса» и лотереи пенальти.</p>`
   },
   {
-    name:"GLM 5.1", vendor:"Zhipu AI", conf:30, champ:"Франция", flag:"🇫🇷",
+    name:"GLM 5.1", vendor:"Zhipu AI", conf:30, champ:"Франция", flag:'<span class="cf cf-fr"></span>',
     final:"Франция — Аргентина", third:"Испания",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Франция</b> — глубина и вертикальная атака; сбои в обороне, раздрай. Ключевой: Мбаппе.</li>
@@ -376,7 +385,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>30% — риск: расширенный плей-офф = «варильня», где один неудачный тайм фаворита против 3-й команды = вылет.</p>`
   },
   {
-    name:"MiniMax-M3", vendor:"MiniMax", conf:28, champ:"Аргентина", flag:"🇦🇷",
+    name:"MiniMax-M3", vendor:"MiniMax", conf:28, champ:"Аргентина", flag:'<span class="cf cf-ar"></span>',
     final:"Аргентина — Франция", third:"Испания",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Испания</b> — чемпионы Евро-2024, крылья Ямаль-Уильямс; нет №9, усталость. Ключевой: Ямаль.</li>
@@ -392,7 +401,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>~28% — риск: молодая Испания или Бразилия ловят кураж; у чемпиона нет запаса на ошибку.</p>`
   },
   {
-    name:"Grok 4.3", vendor:"xAI", conf:42, champ:"Аргентина", flag:"🇦🇷",
+    name:"Grok 4.3", vendor:"xAI", conf:42, champ:"Аргентина", flag:'<span class="cf cf-ar"></span>',
     final:"Испания — Аргентина", third:"Франция",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Франция</b> — глубина и контроль; уязвима к контратакам. Ключевой: Мбаппе.</li>
@@ -408,7 +417,7 @@ const MODELS = [
       <h4>Уверенность</h4><p>42% — риск: непредсказуемая форма возрастных лидеров Аргентины и Испании к июлю.</p>`
   },
   {
-    name:"Kimi K2.6", vendor:"Moonshot AI", conf:55, champ:"Аргентина", flag:"🇦🇷",
+    name:"Kimi K2.6", vendor:"Moonshot AI", conf:55, champ:"Аргентина", flag:'<span class="cf cf-ar"></span>',
     final:"Аргентина — Испания", third:"Франция",
     body:`<h4>Топ-фавориты</h4><ul>
       <li><b>Испания</b> — лучший центр поля, чемпионы Евро-2024; нет игроков «Реала», завершение. Ключевой: Ямаль.</li>
